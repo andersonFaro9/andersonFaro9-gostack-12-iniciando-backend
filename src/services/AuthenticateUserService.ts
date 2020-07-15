@@ -1,7 +1,7 @@
 import {getRepository} from 'typeorm'
 import User from '../models/User'
 import {compare} from 'bcryptjs'
-
+import {sign} from 'jsonwebtoken'
 interface Request {
     email: string;
     password: string;
@@ -9,7 +9,8 @@ interface Request {
 }
 
 interface Response{
-    user: User
+    user: User,
+    token: string
 
 }
 export default class AuthenticateUserService {
@@ -30,8 +31,15 @@ export default class AuthenticateUserService {
 
         }
 
+        const token = sign({},'908d081f1123e7fe79747a2adf1943ab' ,  {
+            subject: user.id,
+            expiresIn: '1d',
+
+        })
+
         return {
-            user
+            user,
+            token
         }
 
     }
