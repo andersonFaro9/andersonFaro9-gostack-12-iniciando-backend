@@ -5,9 +5,9 @@ import ProvidersController from '../controllers/ProvidersController';
 
 const providersRouter = Router();
 
-const providersControler = new ProvidersController();
+const providersController = new ProvidersController();
 providersRouter.use(ensureAuthenticated);
 
-providersRouter.get('/',providersControler.index);
+providersRouter.get('/',providersController.index);
 
 export default providersRouter;

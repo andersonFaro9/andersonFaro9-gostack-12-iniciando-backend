@@ -15,13 +15,11 @@ export default class ListProvidersService {
 
         ) {}
 
-        public async execute ({user_id,} : IRequest) : Promise<User[]> {
+        public async execute ({user_id} : IRequest) : Promise<User[]> {
 
-            const users = await this.usersRepository.findAllProviders({
-                    except_user_id: user_id,
-
-                },
-            );
+            const users =  await this.usersRepository.findAllProviders({
+                except_user_id: user_id,
+            })
 
             return users;
 

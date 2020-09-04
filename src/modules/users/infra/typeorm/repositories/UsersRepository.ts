@@ -20,7 +20,7 @@ class UsersRepository implements IUsersRepository  {
     }
 
 
-    public async findAllProviders({except_user_id}: IFindAllProvidersDTO): Promise<User[]> {
+    public async findAllProviders({except_user_id} : IFindAllProvidersDTO): Promise<User[]> {
         let users:User []
 
         if(except_user_id) {

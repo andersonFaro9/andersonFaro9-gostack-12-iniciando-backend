@@ -20,7 +20,7 @@ describe('ListProviders', () => {
         );
     })
 
-    it ('should be able to list the provider', async() => {
+    it ('should be able to list the providers', async() => {
 
 
        const user1 =  await fakeUsersRepository.create({
