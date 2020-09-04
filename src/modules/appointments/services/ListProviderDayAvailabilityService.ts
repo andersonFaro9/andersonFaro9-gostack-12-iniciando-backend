@@ -37,12 +37,12 @@ export default class ListProviderDayAvailabilityService {
 
         );
         const availability = eachHourArray.map(hour => {
-            const hasAppointmentHour = appointments.find(appointment =>
+            const hasAppointmentInHour = appointments.find(appointment =>
                 getHours(appointment.date) === hour,
             );
             return {
                 hour,
-                available: !hasAppointmentHour,
+                available: !hasAppointmentInHour,
             }
         });
         return availability;
