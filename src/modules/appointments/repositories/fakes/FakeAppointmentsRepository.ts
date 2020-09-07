@@ -40,6 +40,7 @@ class FakeAppointmentsRepository implements IAppoinmentsRepository  {
     public async findAllInDayFromProvider({
         provider_id,
         month,
+
         year,
         day,
     }: IFindAllInDayFromProviderDTO): Promise<Appointment[]> {
@@ -53,10 +54,10 @@ class FakeAppointmentsRepository implements IAppoinmentsRepository  {
 
         return appointments;
     }
-    public async create({ provider_id, date}: ICreateAppointmentDTO) : Promise<Appointment> {
+    public async create({ provider_id, date, user_id}: ICreateAppointmentDTO) : Promise<Appointment> {
 
         const appointment = new Appointment();
-        Object.assign(appointment,{id: uuid(), date, provider_id})
+        Object.assign(appointment,{id: uuid(), date, provider_id, user_id})
         this.appointments.push(appointment);
         return appointment;
     }
