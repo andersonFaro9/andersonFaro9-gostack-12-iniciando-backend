@@ -3,8 +3,6 @@ import AppError  from '@shared/errors/AppError';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 
 import  CreateAppointmentService from './CreateAppointmentService';
-import { getTime } from 'date-fns';
-
 
 let fakeAppointmentsRepository : FakeAppointmentsRepository;
 let createAppointment: CreateAppointmentService;
